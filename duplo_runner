@@ -3,12 +3,14 @@ DUPLO_DIR='/c/duplo';
 
 cd $INSPECT_DIR;
 
-rm $DUPLO_DIR/files.txt;
-rm $DUPLO_DIR/results.txt;
+rm -f $DUPLO_DIR/files.txt;
+rm -f $DUPLO_DIR/results.txt;
 
 find -name "*.cs" >> $DUPLO_DIR/files.txt
 find -name "*.aspx" >> $DUPLO_DIR/files.txt
 find -name "*.rb" >> $DUPLO_DIR/files.txt
 find -name "*.sql" >> $DUPLO_DIR/files.txt
 
-"$DUPLO_DIR/bin/duplo.exe" "$DUPLO_DIR/files.txt" "$DUPLO_DIR/results.txt"
+sed '/.\/Tests/d' "$DUPLO_DIR/files.txt" > "$DUPLO_DIR/filteredfiles.txt";
+
+"$DUPLO_DIR/bin/duplo.exe" "$DUPLO_DIR/filteredfiles.txt" "$DUPLO_DIR/results.txt"

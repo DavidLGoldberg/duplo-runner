@@ -1,7 +1,7 @@
-TEST_DIR='/c/GLGResearch/BuildScripts'; 
+INSPECT_DIR=$1; 
 DUPLO_DIR='/c/duplo';
 
-cd $TEST_DIR;
+cd $INSPECT_DIR;
 
 rm $DUPLO_DIR/files.txt;
 rm $DUPLO_DIR/results.txt;

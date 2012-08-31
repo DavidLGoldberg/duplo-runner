@@ -34,8 +34,10 @@ contents.split(/\n\n/).each do |block|
 	end
 
 	if duplicateIsUseful
-		puts '************* Duplicate found ******************************'
-		puts duplicate
+		if duplicateArray.length > Integer(ARGV[1])
+			puts '************* Duplicate found ******************************'
+			puts duplicate
+		end
 	end
 end
 

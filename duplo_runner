@@ -19,4 +19,4 @@ sed '/.\/Tests/d' "$DUPLO_DIR/files.txt" > "$DUPLO_DIR/filteredfiles.txt";
 	# "$DUPLO_DIR/bin/duplo.exe" -xml "$DUPLO_DIR/filteredfiles.txt" "$DUPLO_DIR/results.txt"
 
 #Filter output:
-ruby "$DUPLO_DIR/filter_duplo_entries.rb" "$DUPLO_DIR/results.txt" > "$DUPLO_DIR/filteredresults.txt";
+ruby "$DUPLO_DIR/filter_duplo_entries.rb" "$DUPLO_DIR/results.txt" $2 > "$DUPLO_DIR/filteredresults.txt";

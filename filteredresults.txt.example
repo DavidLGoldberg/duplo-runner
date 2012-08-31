@@ -1,0 +1,1256 @@
+************* Duplicate found ******************************
+./AppCode/ConsultationCouncilMembers/ConsultationCouncilMemberPresenter.cs(759)
+./AppCode/ConsultationCouncilMembers/Actions/CouncilMemberActions.cs(411)
+        internal virtual string GetParticipantStatusText(ConsultationParticipantStatus status)
+            string statusText;
+            ParticipantStatusTextMap.TryGetValue(status, out statusText);
+            return statusText;
+        internal virtual Dictionary<ConsultationParticipantStatus, string> ParticipantStatusTextMap
+            get
+                return new Dictionary<ConsultationParticipantStatus, string>
+                               {ConsultationParticipantStatus.AddedToList, "Added to List"},
+                               {ConsultationParticipantStatus.Accepted, "Accepted"},
+                               {ConsultationParticipantStatus.Applied, "Applied"},
+                               {ConsultationParticipantStatus.Declined, "Declined"},
+                               {ConsultationParticipantStatus.FailedOversight, "Failed OQs"},
+                               {ConsultationParticipantStatus.GivenToClient, "Given To Client"},
+                               {ConsultationParticipantStatus.Invited, "Invited"},
+                               {ConsultationParticipantStatus.NotCalled, "Not Called"},
+                               {ConsultationParticipantStatus.NotGiven, "Not Given"},
+                               {ConsultationParticipantStatus.Paid, "Paid"},
+                               {ConsultationParticipantStatus.PaymentVoided, "Payment Voided"},
+                               {ConsultationParticipantStatus.Preview, "Preview"},
+                               {ConsultationParticipantStatus.Proposed, "Proposed"},
+                               {ConsultationParticipantStatus.Rejected, "Rejected"},
+                               {ConsultationParticipantStatus.RemindToInvoice, "Remind to Invoice"},
+                               {ConsultationParticipantStatus.RequestedPayment, "Requested Payment"}
+************* Duplicate found ******************************
+./AppCode/ConsultationMVP/PresenterHelper.cs(64)
+./AppCode/Consultation.cs(58)
+            TimeSpan tStart, tEnd;
+            tStart = StartDateTime.TimeOfDay;
+            tEnd = EndDateTime.TimeOfDay;
+            tAnyimeStartTime = new TimeSpan(Convert.ToInt32(sAppSettingAnytime.Split('-')[0].Split(':')[0]), Convert.ToInt32(sAppSettingAnytime.Split('-')[0].Split(':')[1]), 0);
+            tAnyTimeEndtime = new TimeSpan(Convert.ToInt32(sAppSettingAnytime.Split('-')[1].Split(':')[0]), Convert.ToInt32(sAppSettingAnytime.Split('-')[1].Split(':')[1]), 0);
+            tEarlyMorningStartTime = new TimeSpan(Convert.ToInt32(sAppSettingEarlyMorning.Split('-')[0].Split(':')[0]), Convert.ToInt32(sAppSettingEarlyMorning.Split('-')[0].Split(':')[1]), 0);
+            tEarlyMorningEndTime = new TimeSpan(Convert.ToInt32(sAppSettingEarlyMorning.Split('-')[1].Split(':')[0]), Convert.ToInt32(sAppSettingEarlyMorning.Split('-')[1].Split(':')[1]), 0);
+            tMorningStartTime = new TimeSpan(Convert.ToInt32(sAppsettingMorning.Split('-')[0].Split(':')[0]), Convert.ToInt32(sAppsettingMorning.Split('-')[0].Split(':')[1]), 0);
+            tMorningEndTime = new TimeSpan(Convert.ToInt32(sAppsettingMorning.Split('-')[1].Split(':')[0]), Convert.ToInt32(sAppsettingMorning.Split('-')[1].Split(':')[1]), 0);
+            tAfternoonStartTime = new TimeSpan(Convert.ToInt32(sAppsettingAfternoon.Split('-')[0].Split(':')[0]), Convert.ToInt32(sAppsettingAfternoon.Split('-')[0].Split(':')[1]), 0);
+            tAfternoonEndTime = new TimeSpan(Convert.ToInt32(sAppsettingAfternoon.Split('-')[1].Split(':')[0]), Convert.ToInt32(sAppsettingAfternoon.Split('-')[1].Split(':')[1]), 0);
+            tEveningStrtTime = new TimeSpan(Convert.ToInt32(sAppsettingEvening.Split('-')[0].Split(':')[0]), Convert.ToInt32(sAppsettingEvening.Split('-')[0].Split(':')[1]), 0);
+            tEveningEndTime = new TimeSpan(Convert.ToInt32(sAppsettingEvening.Split('-')[1].Split(':')[0]), Convert.ToInt32(sAppsettingEvening.Split('-')[1].Split(':')[1]), 0);
+            if (tStart == tAnyimeStartTime && tEnd == tAnyTimeEndtime)
+                return ClientAvailability.Anytime;
+************* Duplicate found ******************************
+./common/CallSchedule/ChangeClientStatus.aspx.cs(0)
+./CallSchedule/ChangeClientStatus.aspx.cs(0)
+﻿using System;
+using System.Text;
+using System.Collections.Generic;
+using GLG.WebUI.AppCode.ScheduleCall;
+namespace GLG.WebUI.CallSchedule
+    public partial class ChangeClientStatus : System.Web.UI.Page, IChangeAttendeeStatusView 
+        private ChangeAttendeeStatusPresenter _presenter;
+        protected void Page_Load(object sender, EventArgs e)
+            _presenter = new ChangeAttendeeStatusPresenter(this);
+            _presenter.ProcessLoad();
+        public string CMAttendee
+        {   set { hdnCMAttendee.Value = value;} }
+        public string ClientContactAttendeeList
+        {   set { hdnClientAttendeeList.Value = value; } }
+        public string ProjectTitle
+        { set { hdnProjectTitle.Value = value; } }
+        public string SubmitCallbackStatus
+        { set { hdnSubmitStatus.Value = value; }}
+        public int ScheduleCallId
+        {   get { return GetQuerystring("sid"); }}
+        private int GetQuerystring(string queryString)
+            switch (queryString)
+                case "sid":
+                var stringValue = Request.QueryString["sid"];
+                int result;
+                int.TryParse(stringValue, out result);
+                return result;
+            return 0;
+        protected void lbSaveStatus_Click(object sender, EventArgs e)
+            _presenter.SaveScheduledCallAttendees();
+        public string UpdatedScheduledCallAttendeeList
+        {   get { return hdnAttendeeStatuses.Value.ToString(); }  }
+************* Duplicate found ******************************
+./common/CallSchedule/Default.Master.cs(0)
+./CallSchedule/Default.Master.cs(0)
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+namespace GLG.WebUI.CallSchedule
+    public partial class Default : System.Web.UI.MasterPage
+        protected void Page_Load(object sender, EventArgs e)
+************* Duplicate found ******************************
+./common/CallSchedule/GetListingData.aspx.cs(0)
+./CallSchedule/GetListingData.aspx.cs(0)
+﻿using System;
+using System.Web.UI.WebControls;
+using GersonLehrman.Consultations.Scheduling;
+using GLG.WebUI.AppCode.ScheduleCall;
+namespace GLG.WebUI.CallSchedule
+    public partial class GetListingData : System.Web.UI.Page, IGetListingDataView
+        private GetListingDataPresenter _presenter;
+        private const string ACTION = "action";
+        protected void Page_Load(object sender, EventArgs e)
+            _presenter = new GetListingDataPresenter(this);
+            _presenter.ProcessLoad();
+        public ListingDataActionType Action
+            get
+                return
+                     (ListingDataActionType)
+                     Enum.Parse(typeof(ListingDataActionType), Request.QueryString[ACTION], true);
+        public int ConsultationId
+            get
+                return Get("rid");
+        public int MeetingId
+            get
+                return Get("mId");
+        public int CouncilMemberId
+            get
+                return Get("cmId");
+        public int ClientId
+            get
+                return Get("cId");
+        private int Get(string queryString)
+            string stringValue;
+            switch (queryString)
+                case "mId":
+                    stringValue = Request.QueryString["mId"];
+                    int result;
+                    int.TryParse(stringValue, out result);
+                    return result;
+                case "cId":
+                    stringValue = Request.QueryString["cId"];
+                    int.TryParse(stringValue, out result);
+                    return result;
+                case "cmId":
+                    stringValue = Request.QueryString["cmId"];
+                    int.TryParse(stringValue, out result);
+                    return result;
+                case "rid":
+                    stringValue = Request.QueryString["rid"];
+                    int.TryParse(stringValue, out result);
+                    return result;
+            return 0;
+        public bool IsInitialLoad
+            get { return !IsPostBack; }
+        public System.Collections.Generic.IEnumerable<ScheduledCall> ScheduledCallHistory
+            set
+                rptScheduledCallHistory.DataSource = value;
+                rptScheduledCallHistory.DataBind();
+        public System.Collections.Generic.IEnumerable<ScheduledCallAttendee> ClientStatuses
+            set
+                rptClientStatuses.DataSource = value;
+                rptClientStatuses.DataBind();
+        public System.Collections.Generic.IEnumerable<GersonLehrman.Consultations.Participants.ParticipantAvailability> ParticipantAvaliablities
+            set
+                rptParticipantAvaliabilities.DataSource = value;
+                rptParticipantAvaliabilities.DataBind();
+        protected void ItemDataBound(object sender, RepeaterItemEventArgs e)
+            _presenter.ShowClientStatuses(e);
+        public void ClientContactName(RepeaterItemEventArgs e, ScheduledCallAttendee scheduledCallAttendee)
+            var clientContactName = ((Literal)e.Item.FindControl("ltrClientName"));
+            var contactName = string.Format("{0} {1}", scheduledCallAttendee.Person.FirstName, scheduledCallAttendee.Person.LastName);
+            if(string.IsNullOrEmpty(contactName))
+                contactName = scheduledCallAttendee.Person.EmailAddress.ToString();
+            clientContactName.Text = contactName;
+        public void ClientContactStatus(RepeaterItemEventArgs e, string status)
+            var clientContactStatus = ((Literal)e.Item.FindControl("ltrClientStatus"));
+            clientContactStatus.Text = status;
+        public void ClientContactResponseDate(RepeaterItemEventArgs e, ScheduledCallAttendee scheduledCallAttendee)
+            var responseDate = ((Literal)e.Item.FindControl("ltrClientResponseDate"));
+            responseDate.Text = scheduledCallAttendee.CreateDate.ToString("MMM dd, yyyy");
+        public bool ShowNoCMAvailability
+            set
+                litNoCMAvailability.Visible = value;
+                litCMAvailability.Visible = !value;
+        public bool ShowGenerallyAvailable
+            set
+                litCMGenerallyAvailable.Visible = value;
+        #region IGetListingDataView Members
+        #endregion
+************* Duplicate found ******************************
+./common/CallSchedule/Listing.aspx.cs(0)
+./CallSchedule/Listing.aspx.cs(0)
+﻿using System;
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
+using GersonLehrman.Consultations.Scheduling;
+using GLG.WebUI.AppCode.ScheduleCall;
+using Microsoft.Practices.ServiceLocation;
+namespace GLG.WebUI.CallSchedule
+    public partial class Listing : System.Web.UI.Page, IScheduledCallListingView
+        const int RESULTS_PER_PAGE = 25;
+        private ScheduledCallListingPresenter _presenter;
+        protected void Page_Load(object sender, EventArgs e)
+            _presenter.ProcessLoad();
+        protected override void OnInit(EventArgs e)
+            InitializeComponent();
+            base.OnInit(e);
+        private void InitializeComponent()
+            _presenter = ServiceLocator.Current.GetInstance<ScheduledCallListingPresenter>();
+            _presenter.View = this;
+        protected void Filter_Click(object sender, EventArgs e)
+            _presenter.Filter();
+        protected void PageNumber_Click(object sender, EventArgs e)
+            _presenter.Page();
+        protected void SortLinkButton_Command(object sender, CommandEventArgs e)
+            _presenter.Sort(sender, e);
+        protected void lbCancelCall_Click(object sender, EventArgs e)
+            _presenter.ProcessCancel();
+        public bool IsInitialLoad
+            get { return !IsPostBack; }
+        public DateTime StartDate
+            get
+                return Convert.ToDateTime(dtStart.Value);
+            set { dtStart.Value = value.ToString("MM/dd/yyyy"); }
+        public DateTime EndDate
+            get { return Convert.ToDateTime(dtEnd.Value); }
+            set { dtEnd.Value = value.ToString("MM/dd/yyyy"); }
+        public DateTime HiddenStartDate
+            set { hdnDateRangeStart.Value = value.ToString("MM/dd/yyyy"); }
+        public DateTime HiddenEndDate
+            set { hdnDateRangeEnd.Value = value.ToString("MM/dd/yyyy"); }
+        public bool SubmitResponse
+            get { return hdnSubmitResponse.Value.ToUpper() == "TRUE"; }
+            set { hdnSubmitResponse.Value = value.ToString(); }
+        public bool PurgeCache
+            get { return hdnRefreshWithPurgeCache.Value.ToUpper() == "TRUE";  }
+            set { hdnRefreshWithPurgeCache.Value = value.ToString(); }
+        public IEnumerable<ScheduledCallListItem> ScheduledCallList
+            set
+                rptScheduledCallListing.DataSource = value;
+                rptScheduledCallListing.DataBind();
+        public RepeaterItemCollection ScheduledCallRepeaterItems
+            get
+                return rptScheduledCallListing.Items;
+        protected void ItemDatabound(object sender, RepeaterItemEventArgs e)
+            _presenter.ShowScheduledCallListItem(e);
+        public void SetAndShowHistoryUrl(RepeaterItemEventArgs e, string url)
+            var link = (HyperLink)(e.Item.FindControl("hlHistory"));
+            link.NavigateUrl = url;
+            link.Visible = true;
+        public void SetProjectTitleUrl(RepeaterItemEventArgs e, string url,string CouncilMemberName)
+            var link = ((HyperLink)e.Item.FindControl("hlProjectTitle"));
+            link.NavigateUrl = url;
+            link.Target = "_top";
+            var cmLink = ((HyperLink) e.Item.FindControl("hlCouncilMemberName"));
+            cmLink.Text = "(" + CouncilMemberName + ")";
+            cmLink.NavigateUrl = url;
+        public void SetFirmNameUrl(RepeaterItemEventArgs e, string url)
+            var link = ((HyperLink)e.Item.FindControl("hlFirmName"));
+            link.NavigateUrl = url;
+        public void SetClientStatusUrl(RepeaterItemEventArgs e, string url, string urlText)
+            var link = ((HyperLink)e.Item.FindControl("hlClientStatus"));
+            link.NavigateUrl = url;
+            link.Text = urlText;
+        public void SetCouncilMemberStatusUrl(RepeaterItemEventArgs e, string url, string urlText)
+            var link = ((HyperLink)e.Item.FindControl("hlCMStatus"));
+            link.NavigateUrl = url;
+            link.Text = urlText;
+        public void SetRescheduleUrl(RepeaterItemEventArgs e, string url)
+            var link = (HyperLink)(e.Item.FindControl("hlRescheduleCall"));
+            link.NavigateUrl = url;
+            link.Visible = true;
+        public void SetChangeAttendeeStatusUrl(RepeaterItemEventArgs e, string url)
+            var link = (HyperLink) e.Item.FindControl("hlChangeAttendeeStatus");
+            link.NavigateUrl = url;
+        public IEnumerable<int> GetSelectedMeetingIds()
+            var meetingIds = new List<int>();
+            foreach (RepeaterItem item in rptScheduledCallListing.Items)
+                if (((CheckBox)item.FindControl("cbSelected")).Checked)
+                    var hdnMeetingID = (HiddenField) item.FindControl("hdnMeetingID");
+                    int meetingId;
+                    if (int.TryParse(hdnMeetingID.Value, out meetingId))
+                        meetingIds.Add(meetingId);
+            return meetingIds;
+        public void SetSendReminderCssClass(RepeaterItemEventArgs e, bool sendReminder)
+            var link = ((HyperLink) e.Item.FindControl("hlFirmName"));
+            link.CssClass = sendReminder ? "reminder" : "";
+        public void RefreshPageControl()
+            Paging.RefreshPageControl();
+        public string PageTotal
+            set
+                Paging.PageTotal = value;
+        public int PageNumber
+            set
+                Paging.PageNumber = Convert.ToString(value);
+            get
+                return Convert.ToInt32(Paging.PageNumber);
+        public bool IsPagingControlVisible
+            get
+                return Paging.Visible;
+            set
+                Paging.Visible = value;
+        public int ResultsPerPage
+            get
+                return RESULTS_PER_PAGE;
+        public bool IsMyScheduledCallsChecked
+            get
+                return cbMyCall.Checked;
+        public bool IsPraticeAreaSelected
+            get { return Convert.ToInt32(PracticeAreaDropDownList.SelectedValue) != 0; }
+        public int PracticeAreaId
+            get { return Convert.ToInt32(PracticeAreaDropDownList.SelectedValue); }
+        public SortBy SortBy
+            get
+                return (SortBy)Enum.Parse(typeof(SortBy), Convert.ToString(ViewState["SortBy"]));
+            set { ViewState["SortBy"] = value; }
+        public SortDirection SortDir
+            get
+                SortDirection direction = SortDirection.Ascending;
+                if ((string)ViewState["SortDirection"] == "ASC")
+                    direction = SortDirection.Ascending;
+                if ((string)ViewState["SortDirection"] == "DESC")
+                    direction = SortDirection.Descending;
+                return direction;
+            set { ViewState["SortDirection"] = value == SortDirection.Ascending ? "ASC" : "DESC"; }
+        public void SetSortDirection(object sender, string sortBy)
+            string sortDirection = "ASC";
+            var lastSortedBy = SortBy.ToString();
+            if (lastSortedBy != null)
+                if (lastSortedBy == (Enum.Parse(typeof(SortBy), sortBy)).ToString())
+                    var lastDirection = ViewState["SortDirection"] as string;
+                    if ((lastDirection != null) && (lastDirection == "ASC"))
+                        sortDirection = "DESC";
+            var link = (LinkButton) sender;
+            if (sortDirection == "ASC")
+                SortDir = SortDirection.Ascending;
+                link.CssClass = "sortDESC";
+            else if (sortDirection == "DESC")
+                SortDir = SortDirection.Descending;
+                link.CssClass = "sortASC";
+        public void SetSortBy(string sortBy)
+            SortBy = (SortBy) Enum.Parse(typeof (SortBy), sortBy);
+************* Duplicate found ******************************
+./common/CallSchedule/Listing.aspx.designer.cs(9)
+./CallSchedule/Listing.aspx.designer.cs(9)
+namespace GLG.WebUI.CallSchedule {
+    public partial class Listing {
+        protected global::System.Web.UI.WebControls.HiddenField hdnSubmitResponse;
+        protected global::System.Web.UI.WebControls.HiddenField hdnRefreshWithPurgeCache;
+        protected global::System.Web.UI.WebControls.HiddenField hdnDateRangeStart;
+        protected global::System.Web.UI.WebControls.HiddenField hdnDateRangeEnd;
+        protected global::System.Web.UI.WebControls.CheckBox cbMyCall;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dtStart;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dtEnd;
+        protected global::System.Web.UI.WebControls.DropDownList PracticeAreaDropDownList;
+        protected global::System.Web.UI.WebControls.LinkButton btnFilter;
+        protected global::System.Web.UI.WebControls.LinkButton lbCancelCall;
+        protected global::System.Web.UI.WebControls.LinkButton SortFirmName;
+        protected global::System.Web.UI.WebControls.LinkButton SortProjectTitle;
+        protected global::System.Web.UI.WebControls.LinkButton SortScheduleDate;
+        protected global::System.Web.UI.WebControls.LinkButton SortCreatedBy;
+        protected global::System.Web.UI.WebControls.LinkButton SortPrimaryContact;
+        protected global::System.Web.UI.WebControls.LinkButton SortClientStatus;
+        protected global::System.Web.UI.WebControls.LinkButton SortCouncilMemberStatus;
+        protected global::System.Web.UI.WebControls.Repeater rptScheduledCallListing;
+        protected global::GLG.WebUI.UserControls.Paging Paging;
+************* Duplicate found ******************************
+./common/CallSchedule/PostListingData.aspx.cs(0)
+./CallSchedule/PostListingData.aspx.cs(0)
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using GersonLehrman.Consultations.Scheduling;
+using System.IO;
+namespace GLG.WebUI.CallSchedule
+    public partial class PostListingData : System.Web.UI.Page
+        private static ScheduledCallRepository _repo;
+        protected void Page_Load(object sender, EventArgs e)
+            List<string> ids = ConvertJsonToCallScheduleIds(JsonScheduledCallIds);
+            string scheduledCallIds = ConvertToCommaDelimitedList(ids);
+            switch (Action)
+                case ListingDataActionType.SetReminder:
+                    UpdateScheduledCallSendReminderInd(scheduledCallIds, true);
+                    Response.ContentType = "text/plain";
+                    Response.Write("Success");
+                    break;
+                case ListingDataActionType.CancelReminder:
+                    UpdateScheduledCallSendReminderInd(scheduledCallIds, false);
+                    Response.ContentType = "text/plain";
+                    Response.Write("Success");
+                    break;
+        public string ConvertToCommaDelimitedList(List<string> ids)
+            var commaDelimited = new StringBuilder();
+            foreach (var id in ids)
+                commaDelimited.Append(string.Format("{0},", id));
+            return commaDelimited.ToString();
+        public ListingDataActionType Action
+            get
+                return
+                    (ListingDataActionType)
+                    Enum.Parse(typeof(ListingDataActionType), Request.Form["action"]);
+        public string JsonScheduledCallIds
+            get { return Request.Form["calls"]; }
+        public static ScheduledCallRepository Repository
+            get
+                if (_repo == null)
+                    _repo = new ScheduledCallRepository();
+                return _repo;
+        public virtual void UpdateScheduledCallSendReminderInd(string scheduledCallIds, bool sendReminder)
+            Repository.UpdateScheduledCallSendReminderInd(scheduledCallIds, sendReminder);
+        internal virtual List<string> ConvertJsonToCallScheduleIds(string json)
+            if (String.IsNullOrEmpty(json))
+                return new List<string>();
+            var stream = new MemoryStream(Encoding.Unicode.GetBytes(json));
+            var serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof (List<string>));
+            return serializer.ReadObject(stream) as List<string>;
+************* Duplicate found ******************************
+./Dialogs/MMS/Common/CancelReasonDlg.aspx.cs(0)
+./common/Dialogs/MMS/Common/CancelReasonDlg.aspx.cs(0)
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Web;
+using System.Web.SessionState;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Xml;
+using System.Security.Permissions;
+using GersonLehrman.Consultations;
+using GersonLehrman.Legacy.Consultations.Utilities;
+using GLG.Framework.SecurityLib;
+using BusinessData.MMS;
+using GLG.BusinessFacade;
+using GLG.BusinessFacade.MMS;
+using GLG.BusinessFacade.MMS.Common;
+using BusinessData.Constants;
+namespace GLG.WebUI.Dialogs
+    public class CancelReasonDlg : MeetingRequestDlgBase
+		protected System.Web.UI.WebControls.Button btnClose;
+		protected System.Web.UI.WebControls.TextBox txtReason;
+		protected System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+		protected System.Web.UI.WebControls.Button btnSave;
+		private void Page_Load(object sender, System.EventArgs e)
+			if(!IsPostBack)
+				this.Initialize();
+				this.InitializeRequest(); 
+		#region Web Form Designer generated code
+		override protected void OnInit(EventArgs e)
+			InitializeComponent();
+			base.OnInit(e);
+		private void InitializeComponent()
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+			this.Load += new System.EventHandler(this.Page_Load);
+		#endregion
+		private void btnSave_Click(object sender, System.EventArgs e)
+						if(this.MeetingRequestID == 0)
+							MeetingSystem.CancelMeeting(this.MeetingID, true, txtReason.Text, HelperUtils.GetCookie().m_nUserID);
+						else 
+							DataSet meetingIds = MeetingRequestSystem.GetMeetingRequestMeetingIds(this.MeetingRequestID);  
+							for(int i = 0; i < meetingIds.Tables["MEETING_REQUEST_MEETING_RELATION"].Rows.Count; i++) 
+								int meetingId = (int)meetingIds.Tables["MEETING_REQUEST_MEETING_RELATION"].Rows[i]["MEETING_ID"];
+								MeetingSystem.CancelMeeting(meetingId, true, txtReason.Text, HelperUtils.GetCookie().m_nUserID);
+								MeetingRequestSystem.UpdateMeetingRequestStatusByMeetingRequestId(this.MeetingRequestID,(int)MeetingStatusEnum.Canceled,1);  
+                        Consultation.PurgeCache(MeetingRequestID);
+						this.Close();		
+		private void btnClose_Click(object sender, System.EventArgs e)
+			this.Close();		
+************* Duplicate found ******************************
+./Dialogs/MMS/Common/CouncilMemberStatusHistory.aspx.cs(0)
+./common/Dialogs/MMS/Common/CouncilMemberStatusHistory.aspx.cs(0)
+using System;
+using System.Data;
+using System.Web.UI.WebControls;
+using BusinessData.MMS;
+using GLG.BusinessFacade.MMS;
+namespace GLG.WebUI.Dialogs.MMS.Common
+    public class CouncilMemberStatusHistory : System.Web.UI.Page 
+		protected Repeater repCouncilMemberStatusHistory;
+		private void Page_Load(object sender, System.EventArgs e)
+			string strMeetingId = Request["MEETING_ID"];
+			string strCouncilMemberId = Request["COUNCIL_MEMBER_ID"];
+			int meetingId = Convert.ToInt32(strMeetingId);
+			int councilMemberId = Convert.ToInt32(strCouncilMemberId);
+			MeetingCouncilMemberStatusHistory cmh = MeetingAdvisorSystem.GetCouncilMemberStatusHistory(meetingId, councilMemberId);
+			repCouncilMemberStatusHistory.DataSource = cmh.MEETING_COUNCIL_MEMBER_STATUS_HISTORY;
+			repCouncilMemberStatusHistory.DataBind();
+		private void repCouncilMemberStatusHistory_ItemDataBound(object sender, RepeaterItemEventArgs e)
+			DataRowView row = (DataRowView)e.Item.DataItem;
+			Label status = (Label)e.Item.FindControl("lblStatus"); 
+			Label date = (Label)e.Item.FindControl("lblStatusDate"); 
+			status.Text = row["MEETING_PARTICIPANT_STATUS"].ToString();
+			date.Text = row["CREATE_DATE"].ToString();
+		#region Web Form Designer generated code
+		override protected void OnInit(EventArgs e)
+			InitializeComponent();
+			base.OnInit(e);
+		private void InitializeComponent()
+			this.repCouncilMemberStatusHistory.ItemDataBound += new System.Web.UI.WebControls.RepeaterItemEventHandler(this.repCouncilMemberStatusHistory_ItemDataBound);
+			this.Load += new System.EventHandler(this.Page_Load);
+		#endregion
+************* Duplicate found ******************************
+./Dialogs/MMS/Consultation/AddFeedbackReqDlg.aspx.cs(0)
+./common/Dialogs/MMS/Consultation/AddFeedbackReqDlg.aspx.cs(0)
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Web;
+using System.Web.SessionState;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Xml;
+using System.Security.Permissions;
+using GersonLehrman.Legacy.Consultations.Utilities;
+using GLG.Framework.SecurityLib;
+using BusinessData.MMS;
+using GLG.BusinessFacade;
+using GLG.BusinessFacade.MMS;
+using GLG.BusinessFacade.MMS.Common;
+namespace GLG.WebUI.Dialogs
+    public class AddFeedbackReqDlg : MeetingRequestDlgBase
+		protected System.Web.UI.WebControls.ValidationSummary Validationsummary1;
+		protected System.Web.UI.WebControls.Button btnClose;
+		protected System.Web.UI.WebControls.Button btnSave;
+		protected System.Web.UI.WebControls.TextBox txtComment;
+		protected System.Web.UI.WebControls.RadioButtonList radioOverallRating;
+		protected System.Web.UI.WebControls.RadioButtonList radioTopicRating;
+		protected System.Web.UI.WebControls.RadioButtonList radioAdvisorRating;
+		protected System.Web.UI.WebControls.RequiredFieldValidator Requiredfieldvalidator2;
+		protected System.Web.UI.WebControls.DropDownList listContacts;
+		protected System.Web.UI.WebControls.RequiredFieldValidator Requiredfieldvalidator1;
+		protected System.Web.UI.WebControls.DropDownList listAdvisors;
+		protected System.Web.UI.HtmlControls.HtmlForm frmAddress;
+		private void Page_Load(object sender, System.EventArgs e)
+			if(!IsPostBack)
+				this.InitializeRequest();
+				BindAdvisors();
+				btnSave.Enabled = false;
+		#region Web Form Designer generated code
+		override protected void OnInit(EventArgs e)
+			InitializeComponent();
+			base.OnInit(e);
+		private void InitializeComponent()
+			this.listAdvisors.SelectedIndexChanged += new EventHandler(this.listAdvisors_SelectedIndexChanged);
+			this.listContacts.SelectedIndexChanged += new System.EventHandler(this.listContacts_SelectedIndexChanged);
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+			this.Load += new System.EventHandler(this.Page_Load);
+		#endregion
+		private void btnSave_Click(object sender, System.EventArgs e)
+			int nContactID = 0;
+			int nMeetingID = 0;
+			int nAdvisorID = 0;
+			if(listContacts.SelectedIndex >= 0 && listAdvisors.SelectedIndex >= 0)
+				nContactID = Convert.ToInt32(listContacts.SelectedValue);
+				string[] advisor = HelperUtils.ParseList(listAdvisors.SelectedValue);
+				nMeetingID = Convert.ToInt32(advisor[1]);
+				nAdvisorID = Convert.ToInt32(advisor[0]); 
+			else
+				return;
+			int nRButton1  = this.radioAdvisorRating.SelectedIndex;
+			int nRButton2  = this.radioOverallRating.SelectedIndex;
+			int nRButton3  = this.radioTopicRating.SelectedIndex;
+			if( (nRButton1 == -1) || (nRButton2 == -1) || (nRButton3 == -1) )
+				string strCheckScript = "<script>alert('Please click on each of the ratings');</script>";
+				Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "checkusersscript", strCheckScript);
+			else
+				MeetingFeedbackData ds = new MeetingFeedbackData();
+				MeetingFeedbackData.MEETING_FEEDBACKRow row = ds.MEETING_FEEDBACK.AddMEETING_FEEDBACKRow(nContactID,
+					nAdvisorID, HelperUtils.GetCookie().m_nUserID,
+					Convert.ToInt32(radioOverallRating.SelectedValue) ,
+					Convert.ToInt32(radioTopicRating.SelectedValue) ,
+					Convert.ToInt32(radioAdvisorRating.SelectedValue) , txtComment.Text, true, DateTime.Now, "", "", "", nMeetingID);
+				MeetingFeedbackSystem.AddFeedback(ds);
+				if(Convert.ToInt32(radioOverallRating.SelectedValue) >= 4 && Convert.ToInt32(radioTopicRating.SelectedValue) >= 4) 
+					Utilities.Consultation.DoClientFeedbackOnCallEmailCheck(nMeetingID,nAdvisorID, 0);
+				listAdvisors.SelectedIndex = 0;
+				listContacts.Items.Clear();
+				string strCheckScript = "<script>alert('Your Feedback has been saved');</script>";
+				Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "checkusersscript", strCheckScript);
+				this.radioAdvisorRating.ClearSelection();
+				this.radioOverallRating.ClearSelection();
+				this.radioTopicRating.ClearSelection();
+		private void btnClose_Click(object sender, System.EventArgs e)
+			this.Close();		
+		private void listAdvisors_SelectedIndexChanged(object sender, System.EventArgs e)
+			radioAdvisorRating.SelectedIndex = -1;
+			radioOverallRating.SelectedIndex = -1;
+			radioTopicRating.SelectedIndex = -1;
+			BindContacts();
+		private void listContacts_SelectedIndexChanged(object sender, System.EventArgs e)
+			radioAdvisorRating.SelectedIndex = -1;
+			radioOverallRating.SelectedIndex = -1;
+			radioTopicRating.SelectedIndex = -1;
+		private void BindAdvisors() 
+			MeetingRequestCouncilMemberData dsAdv = MeetingRequestSystem.GetMeetingRequestCouncilMembers(this.MeetingRequestID );
+			listAdvisors.DataSource = dsAdv.MEETING_REQUEST_COUNCIL_MEMBER ;
+			listAdvisors.DataTextField = "FULL_NAME";
+			listAdvisors.DataValueField = "COUNCIL_MEMBER_ID_MEETING_ID";
+			listAdvisors.DataBind();
+			ListItem item = new ListItem("-- Select --", "0");
+			listAdvisors.Items.Insert(0, item);
+			btnSave.Enabled = false;
+		private void BindContacts()
+			MeetingContactData dsContacts = null;
+			string[] advisor = HelperUtils.ParseList(listAdvisors.SelectedValue);   
+			if (advisor.Length  > 1) {
+				dsContacts = ContactSystem.GetMeetingContacts(Convert.ToInt32(advisor[1]));
+			else 
+				dsContacts = new MeetingContactData();
+			listContacts.DataSource = dsContacts.MEETING_CONTACT;
+			listContacts.DataTextField = "FULL_NAME";
+			listContacts.DataValueField = "MEETING_CONTACT_RELATION_ID";
+			listContacts.DataBind();
+			if(listContacts.Items.Count == 0)
+				btnSave.Enabled = false;
+			else 
+				btnSave.Enabled = true;
+************* Duplicate found ******************************
+./Dialogs/MMS/Consultation/ContactReqDlg.aspx.cs(0)
+./common/Dialogs/MMS/Consultation/ContactReqDlg.aspx.cs(0)
+using System;
+using System.Collections;
+using System.Collections.Specialized ;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Web;
+using System.Web.SessionState;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Security.Permissions;
+using GersonLehrman.Legacy.Consultations.Utilities;
+using GLG.Framework.SecurityLib;
+using BusinessData.MMS;
+using GLG.BusinessFacade;
+using GLG.BusinessFacade.MMS;
+using GLG.BusinessFacade.MMS.Common;
+using BusinessData.Constants;
+namespace GLG.WebUI.Dialogs
+    public class ContactReqDlg : MeetingDlgBase
+		protected System.Web.UI.WebControls.ListBox lstContact;
+		protected System.Web.UI.WebControls.ListBox lstContacts;
+		protected System.Web.UI.WebControls.Button btnSave;
+		private void Page_Load(object sender, System.EventArgs e)
+			if(!IsPostBack)
+				string strType = Request["DIR"];
+				ViewState["DIR"] = strType;
+				if(null != strType && strType.Length > 0)
+					int nType = Convert.ToInt32(strType);
+					this.Initialize();
+					ContactData dsContactData = ContactSystem.GetFirmContacts(nType);
+					if(dsContactData.CONTACT.Rows.Count > 0)
+						lstContacts.DataValueField = dsContactData.CONTACT.Columns[0].ColumnName;
+						lstContacts.DataTextField = dsContactData.CONTACT.Columns[3].ColumnName;
+                        lstContacts.DataSource = dsContactData.CONTACT.Select("LOG_IND=True", "FULL_NAME", DataViewRowState.CurrentRows);
+						lstContacts.DataBind();
+						string strContacts = (string)Context.Session[SessionKeysEnum.Contact.ToString()];
+						if(null != strContacts)
+							string[] strSelections = HelperUtils.ParseList(strContacts);
+							Context.Session[SessionKeysEnum.Contact.ToString()] = null;
+							if(strSelections.Length > 0) 
+								foreach(string select in strSelections)
+									if (select.Length > 0)
+										ListItem item = lstContacts.Items.FindByValue(select);
+										if(null != item)
+											item.Selected = true;
+										else
+				else
+		#region Web Form Designer generated code
+		override protected void OnInit(EventArgs e)
+			InitializeComponent();
+			base.OnInit(e);
+		private void InitializeComponent()
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			this.Load += new System.EventHandler(this.Page_Load);
+		#endregion
+		private void btnSave_Click(object sender, System.EventArgs e)
+				NameValueCollection nvc = new NameValueCollection();
+				foreach(ListItem item in lstContacts.Items)
+					if(item.Selected)
+						nvc.Add(item.Value,item.Text);
+				Context.Session["REQ_DIAG"] = nvc; 
+				this.Close();
+************* Duplicate found ******************************
+./Dialogs/MMS/Consultation/CustomRecruitDlg.aspx.cs(0)
+./common/Dialogs/MMS/Consultation/CustomRecruitDlg.aspx.cs(0)
+using System;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using GLG.BusinessEntity.Common;
+using GLG.BusinessEntity.Users.Councils;
+using GLG.BusinessFacade.Meetings;
+using GLG.BusinessObjects.Users;
+using GLG.Web.UI.WebControls;
+namespace GLG.WebUI.Dialogs.MMS.Consultation
+    public class CustomRecruitDlg : Page
+        protected Button btnSubmit;
+        protected GLGLabel lblNoCouncilMembers;
+        protected Repeater rptCouncilMember;
+        #region Page Events
+        private void Page_Load(object sender, EventArgs e)
+            if (!Page.IsPostBack)
+                int nMeetingRequestID = Convert.ToInt32(Request.QueryString["rid"]);
+                if (Request.QueryString["action"] != null)
+                    ViewState["action"] = Convert.ToInt32(Request.QueryString["action"]);
+                var oMeetingRequestVegaBF = new MeetingRequestVegaBF();
+                CouncilMemberDataCollection oCouncilMemberDataCollection =
+                    oMeetingRequestVegaBF.GetMeetingRequestCouncilMembers(nMeetingRequestID);
+                if (oCouncilMemberDataCollection.Count > 0)
+                    rptCouncilMember.DataSource = oCouncilMemberDataCollection;
+                    rptCouncilMember.DataBind();
+                else
+                    lblNoCouncilMembers.Visible = true;
+        private void rptCouncilMember_ItemDataBound(object sender, RepeaterItemEventArgs e)
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+                var oCouncilMemberData = (CouncilMemberData) e.Item.DataItem;
+                ((HtmlInputHidden) e.Item.FindControl("hdnMeetingID")).Value = oCouncilMemberData.MeetingID.ToString();
+                var ddCustomRecruit = ((GLGDropDownList) e.Item.FindControl("ddCustomRecruit"));
+                var lblUserInfo = ((GLGLabel) e.Item.FindControl("lblUserInfo"));
+                if (oCouncilMemberData.PaidReferral)
+                    switch (oCouncilMemberData.PaidReferralType)
+                        case PaidReferralTypeEnum.Charge:
+                            ddCustomRecruit.Items.Add(new ListItem("Paid Referral: Charged", "3"));
+                            ddCustomRecruit.SelectedValue = "3";
+                            break;
+                        case PaidReferralTypeEnum.None:
+                        case PaidReferralTypeEnum.DoNotCharge:
+                            ddCustomRecruit.Items.Add(new ListItem("Paid Referral: Not Charged", "4"));
+                            ddCustomRecruit.SelectedValue = "4";
+                            break;
+                    ddCustomRecruit.Enabled = false;
+                else
+                    switch (oCouncilMemberData.CustomRecruitType)
+                        case CustomRecruitTypeEnum.Charged:
+                        case CustomRecruitTypeEnum.Complimentary:
+                            lblUserInfo.Text = oCouncilMemberData.CustomRecruitUserFirstName == string.Empty
+                                                   ? string.Empty
+                                                       oCouncilMemberData.CustomRecruitLastUpdateDate.ToShortDateString() +
+                                                       " | " +
+                                                       oCouncilMemberData.CustomRecruitUserFirstName + " " +
+                                                       oCouncilMemberData.CustomRecruitUserLastName;
+                            break;
+                    ddCustomRecruit.SelectedValue = ((int) oCouncilMemberData.CustomRecruitType).ToString();
+                    ddCustomRecruit.Enabled = !(oCouncilMemberData.IsGiven);
+        private void btnSubmit_Click(object sender, EventArgs e)
+            GlgUser CurrentUser = GlgUser.GetCurrentUser();
+            var oMeetingRequestVegaBF = new MeetingRequestVegaBF();
+            for (int i = 0; i < rptCouncilMember.Items.Count; i++)
+                int nMeetingID =
+                    Convert.ToInt32(((HtmlInputHidden) rptCouncilMember.Items[i].FindControl("hdnMeetingID")).Value);
+                int nCustomRecruitType =
+                    Convert.ToInt32(
+                        ((GLGDropDownList) rptCouncilMember.Items[i].FindControl("ddCustomRecruit")).SelectedValue);
+                var enumCustomRecruitType = (CustomRecruitTypeEnum) nCustomRecruitType;
+                oMeetingRequestVegaBF.UpdateMeetingRequestCouncilMemberCustomRecruitType(nMeetingID,
+                                                                                         enumCustomRecruitType,
+                                                                                         CurrentUser.ID);
+            RemoveConsultationCachedData();
+            ClosePage();
+        private void RemoveConsultationCachedData()
+            int nMeetingRequestID = Convert.ToInt32(Request.QueryString["rid"]);
+            GersonLehrman.Consultations.Consultation.PurgeCache(nMeetingRequestID);
+        #endregion
+        #region Helper Methods
+        private void ClosePage()
+            Response.Write("<script>window.opener.location.reload(); window.close();</script>");
+        #endregion
+        #region Web Form Designer generated code
+        protected override void OnInit(EventArgs e)
+            InitializeComponent();
+            base.OnInit(e);
+        private void InitializeComponent()
+            this.rptCouncilMember.ItemDataBound +=
+                new System.Web.UI.WebControls.RepeaterItemEventHandler(this.rptCouncilMember_ItemDataBound);
+            this.Load += new System.EventHandler(this.Page_Load);
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+        #endregion
+************* Duplicate found ******************************
+./Dialogs/MMS/Consultation/DuplicateConsultationDlg.aspx.cs(0)
+./common/Dialogs/MMS/Consultation/DuplicateConsultationDlg.aspx.cs(0)
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Data;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using BusinessData.MMS;
+using GersonLehrman.Legacy.Consultations.Utilities;
+using GLG.BusinessEntity.Common;
+using GLG.BusinessFacade.Accounts;
+using GLG.BusinessFacade.MMS;
+using GLG.BusinessFacade.MMS.Common;
+using GLG.SystemFrameworks;
+using GLG.Web.UI.WebControls;
+using GLG.WebUI.AppCode.ConsultationCopy;
+using UPQ = GersonLehrman.Questions;
+namespace GLG.WebUI.Dialogs
+    public class DuplicateConsultationDlg : MeetingRequestDlgBase, IConsultationCopyView
+        protected CheckBox btnCheckAll;
+        protected Button btnClose;
+        protected Button btnDuplicate;
+        protected DialogOpenLink btnEditContact;
+        protected LinkButton btnLoadMyClients;
+        protected DialogWindow dlgEditContact;
+        protected Label lblContactsLabel;
+        protected Label lblNoCouncilMembers;
+        protected Label lblError;
+        protected DropDownList listFirm;
+        protected DropDownList lstContact;
+        private short m_nCookieUserID;
+        private short m_nGLGUserID;
+        protected Repeater repCouncilMembers;
+        protected RequiredFieldValidator RequiredFieldValidator1;
+        protected RequiredFieldValidator RequiredFieldValidator2;
+        protected RequiredFieldValidator RequiredFieldValidator3;
+        protected TextBox textTitle;
+        private ConsultationCopyPresenter _presenter;
+        private void Page_Load(object sender, EventArgs e)
+            _presenter = new ConsultationCopyPresenter(this);
+            VegaCookie VegaCookie = HelperUtils.GetCookie();
+            m_nCookieUserID = m_nGLGUserID = VegaCookie.m_nUserID;
+            if (!IsPostBack)
+                if (Request["TITLE"] != null)
+                    textTitle.Text = Server.UrlDecode(Request["TITLE"]);
+                MeetingRequestID = Convert.ToInt32(Request["MEETING_REQUEST_ID"]);
+                MeetingRequestCouncilMemberData cmembers =
+                    MeetingRequestSystem.GetMeetingRequestCouncilMembers(MeetingRequestID);
+                repCouncilMembers.DataSource = cmembers.MEETING_REQUEST_COUNCIL_MEMBER;
+                repCouncilMembers.DataBind();
+                if (cmembers.MEETING_REQUEST_COUNCIL_MEMBER.Count != 0)
+                    lblNoCouncilMembers.Visible = false;
+                btnDuplicate.Attributes.Add("onclick",
+                                            "if(!confirm('You are about to duplicate the information for this consultation...are you sure you want to continue? ')) return false;");
+                BindClients();
+                UpdateCheckBoxs();
+        private void UpdateCheckBoxs()
+            string strCheckAll = string.Format("var bChecked = document.forms[0].{0}.checked; ", btnCheckAll.ClientID);
+            foreach (RepeaterItem item in repCouncilMembers.Items)
+                var CheckAll = (CheckBox) item.FindControl("checkbox");
+                strCheckAll = strCheckAll + "document.forms[0]." + CheckAll.ClientID + ".checked=bChecked;";
+            strCheckAll += " return true;";
+            btnCheckAll.Attributes.Add("onclick", strCheckAll);
+        private void repCouncilMembers_ItemDataBound(object sender, RepeaterItemEventArgs e)
+            var row = (DataRowView) e.Item.DataItem;
+            var btnNames = (HtmlAnchor) e.Item.FindControl("Names");
+            btnNames.InnerText = row["FULL_NAME"].ToString();
+            var cmCompany = (Label) e.Item.FindControl("lblCompany");
+            cmCompany.Text = row["COMPANY"].ToString();
+            var cmID = (TextBox) e.Item.FindControl("tboxCMid");
+            cmID.Text = row["COUNCIL_MEMBER_ID"].ToString();
+            btnNames.Attributes.Add("onclick"
+                                    , string.Format("window.open(\"{0}{1}\")"
+                                                    , MMSConfiguration.AdvisorURL,
+                                                    Convert.ToInt32(row["COUNCIL_MEMBER_ID"])));
+        private void BindClients()
+            DataSet ds = ClientSystem.GetClientsByUserId(m_nGLGUserID);
+            listFirm.DataValueField = "CLIENT_ID";
+            listFirm.DataTextField = "CLIENT_NAME";
+            listFirm.DataSource = ds.Tables[0];
+            listFirm.DataBind();
+            var dummyItem = new ListItem("-- choose --", "");
+            listFirm.Items.Insert(0, dummyItem);
+        private void BindMyClients()
+            DataSet ds = null;
+            if (btnLoadMyClients.Text == "Load All Clients")
+                ds = ClientSystem.GetClientsByUserId(m_nGLGUserID);
+            else
+                ds = ClientSystem.GetClients();
+            listFirm.DataValueField = "CLIENT_ID";
+            listFirm.DataTextField = "CLIENT_NAME";
+            listFirm.DataSource = ds.Tables[0];
+            listFirm.DataBind();
+            var dummyItem = new ListItem("-- choose --", "");
+            listFirm.Items.Insert(0, dummyItem);
+        private void BindContacts()
+            if (!listFirm.SelectedValue.Equals(""))
+                ContactData ds = ContactSystem.GetFirmContacts(Convert.ToInt32(listFirm.SelectedValue));
+                lstContact.DataValueField = "CONTACT_ID";
+                lstContact.DataTextField = "FULL_NAME";
+                lstContact.DataSource = ds.CONTACT;
+                for (int i = 0; i < ds.CONTACT.Count; i++)
+                    var values = new ArrayList((Contacts).Split(';'));
+                    if (!values.Contains(ds.CONTACT[i].CONTACT_ID.ToString()))
+                        ds.CONTACT[i].Delete();
+                lstContact.DataBind();
+        private void listFirm_SelectedIndexChanged(object sender, EventArgs e)
+            if (listFirm.SelectedValue == null || listFirm.SelectedValue.Equals(""))
+                Context.Session["REQ_DIAG"] = null;
+            else
+                ClearContacts();
+        protected void ClearContacts()
+            dlgEditContact.DialogArguments.Clear();
+            dlgEditContact.DialogArguments.Add("DIR", (listFirm.SelectedValue));
+            Contacts = "";
+            lblContactsLabel.Text = "";
+            BindContacts();
+        private void dlgEditContact_DialogClosed(object sender, DialogResultEventArgs e)
+            if (Context.Session["REQ_DIAG"] != null)
+                var nvc = (NameValueCollection) Context.Session["REQ_DIAG"];
+                string label = "";
+                string keys = "";
+                GetLabelAndKeys(nvc, ref label, ref keys);
+                lblContactsLabel.Text = label;
+                Contacts = keys;
+                Context.Session["REQ_DIAG"] = null;
+                BindContacts();
+        private void GetLabelAndKeys(NameValueCollection argNvc, ref string argLabel, ref string argKeys)
+            if (argNvc != null)
+                for (int i = 0; i < argNvc.Count; i++)
+                    argLabel = argLabel + (argNvc.GetValues(i))[0] + "<BR>";
+                    argKeys = argKeys + (argNvc.GetKey(i)) + ";";
+                if (argKeys.Length > 0)
+                    argKeys = argKeys.Remove(argKeys.Length - 1, 1);
+        private void btnLoadMyClients_Click(object sender, EventArgs e)
+            ClearContacts();
+            if (btnLoadMyClients.Text == "Load All Clients")
+                btnLoadMyClients.Text = "Load My Clients";
+            else
+                btnLoadMyClients.Text = "Load All Clients";
+            BindMyClients();
+        private void btnCheckAll_ServerChange(object sender, EventArgs e)
+            string strScript = string.Format("<script>function {0}CheckCount (){{ var nChecked = 0;", ID);
+            foreach (RepeaterItem item in repCouncilMembers.Items)
+                var checkSend = (CheckBox) item.FindControl("checkSend");
+                strScript += "if(document.forms[0]." + checkSend.ClientID + ".checked) nChecked++;";
+            strScript += "return nChecked; }</script>";
+            Page.ClientScript.RegisterClientScriptBlock(GetType(), ID + "script", strScript);
+            string strCheckScript = "<script>alert('Please click on each of the ratings');</script>";
+            Page.ClientScript.RegisterClientScriptBlock(GetType(), "checkusersscript", strCheckScript);
+        #region Properties
+        public string Contacts
+            set { ViewState["Contacts"] = value; }
+            get { return Convert.ToString(ViewState["Contacts"]); }
+        #endregion
+        #region Web Form Designer generated code
+        protected override void OnInit(EventArgs e)
+            InitializeComponent();
+            base.OnInit(e);
+        private void InitializeComponent()
+            this.listFirm.SelectedIndexChanged += new System.EventHandler(this.listFirm_SelectedIndexChanged);
+            this.btnLoadMyClients.Click += new System.EventHandler(this.btnLoadMyClients_Click);
+            this.dlgEditContact.DialogClosed +=
+                new GLG.Web.UI.WebControls.DialogResultEventHandler(this.dlgEditContact_DialogClosed);
+            this.repCouncilMembers.ItemDataBound +=
+                new System.Web.UI.WebControls.RepeaterItemEventHandler(this.repCouncilMembers_ItemDataBound);
+            this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.Load += new System.EventHandler(this.Page_Load);
+        #endregion
+        #region interface members
+        public int ClientFirmId
+            get { return Convert.ToInt32(listFirm.SelectedValue); }
+        public int ConsultationId
+            get { return Convert.ToInt32(Request["MEETING_REQUEST_ID"]); }
+        public int PrimaryClientContactContactId
+            get { return Convert.ToInt32(lstContact.SelectedValue); }
+        public string ConsultTitle
+            get { return textTitle.Text; }
+        public string DisplayError
+            get { return lblError.Text;  }
+            set { lblError.Text = value; }
+        public List<int> ClientContacts
+            get { var sContactIds = Contacts.Trim().Split(';');
+                var contactIds = new List<int>();
+                for(int i =0 ; i < sContactIds.Length; i++)
+                    contactIds.Add(Convert.ToInt32(sContactIds[i]));
+                return contactIds;
+        public List<int> CouncilMembers
+            get
+                var councilMembers = new List<int>();
+                for (int i = 0; i < repCouncilMembers.Items.Count; i++)
+                    var cbox = (CheckBox) repCouncilMembers.Items[i].FindControl("checkbox");
+                    bool nRowSelected = cbox.Checked;
+                    if (nRowSelected)
+                        int cmemberID =
+                            Convert.ToInt32(((TextBox) repCouncilMembers.Items[i].FindControl("tboxCMid")).Text);
+                        councilMembers.Add(cmemberID);
+                return councilMembers;
+        public void CloseDialog(int newConsultationId)
+            this.Close(newConsultationId.ToString());
+        #endregion
+        private void btnDuplicate_Click(object sender, EventArgs e)
+            _presenter.ProcessSubmit();
+        private void btnClose_Click(object sender, EventArgs e)
+            Close();
+************* Duplicate found ******************************
+./Dialogs/MMS/MeetingDlgBase.cs(0)
+./common/Dialogs/MMS/MeetingDlgBase.cs(0)
+using System;
+using System.Configuration;
+namespace GLG.WebUI
+	public class MeetingDlgBase : GLG.Web.UI.WebControls.DialogPage
+		protected void Initialize()
+			string strID = Request["MEETING_ID"];
+			if(strID != null && strID != "")
+				this.MeetingID = Convert.ToInt32(strID);
+		protected int MeetingID
+			get
+				return Convert.ToInt32(ViewState["MEETING_ID"]);
+			set
+				ViewState["MEETING_ID"] = value;
+************* Duplicate found ******************************
+./Dialogs/MMS/MeetingRequestDlgBase.cs(0)
+./common/Dialogs/MMS/MeetingRequestDlgBase.cs(0)
+using System;
+namespace GLG.WebUI
+	public class MeetingRequestDlgBase : MeetingDlgBase
+		protected void InitializeRequest()
+			string strID = Request["MEETING_REQUEST_ID"];
+			if(strID != null && strID != "")
+				this.MeetingRequestID = Convert.ToInt32(strID);
+		protected int MeetingRequestID
+			get
+				return Convert.ToInt32(ViewState["MEETING_REQUEST_ID"]);
+			set
+				ViewState["MEETING_REQUEST_ID"] = value;
+************* Duplicate found ******************************
+./MMS/ConsultationOverview.aspx.cs(1313)
+./AppCode/ConsultationMVP/PresenterHelper.cs(138)
+            switch (clientAvailability)
+                case "Anytime":
+                    return ClientAvailability.Anytime;
+                case "Afternoon":
+                    return ClientAvailability.Afternoon;
+                case "EarlyMorning":
+                    return ClientAvailability.EarlyMorning;
+                case "Evening":
+                    return ClientAvailability.Evening;
+                case "Morning":
+                    return ClientAvailability.Morning;
+                default:
+                    throw new Exception("Unrecognized ClientAvailability Type");
+************* Duplicate found ******************************
+./ProfileQuestions/QuestionViewer/ProfileQuestionsBySubjects.aspx.cs(467)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsByPopulation.aspx.cs(280)
+					else
+						break;
+				questions = (ProfileObjects.Question[])arrSubjectQuestions.ToArray(typeof(ProfileObjects.Question));
+				this.TotalCount = questions.Length;
+			Array.Sort(questions, new GLG.SystemFrameworks.Utilities.ObjectComparer(strSort, bolAscending));
+			if (intPageNumber == 0)
+				intPageNumber = 0;
+				intPageSize = 0;
+			else
+				if(intPageSize == 0)intPageSize = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["TaxonomyProfileQuestionsPerPage"]);
+				int intStartIndex = intPageSize * (intPageNumber - 1);
+				int intCount = intStartIndex + intPageSize > this.TotalCount ? this.TotalCount - intStartIndex : intPageSize;
+				arrQuestios = new ArrayList(questions);
+************* Duplicate found ******************************
+./ProfileQuestions/QuestionViewer/ProfileQuestionsBySubjects.aspx.cs(53)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsByPopulation.aspx.cs(56)
+		private int m_TotalCount;
+		public int TotalCount
+			get
+				m_TotalCount = ViewState["TotalCount"] == null ? 0 : Convert.ToInt32(ViewState["TotalCount"]);
+				return m_TotalCount;
+			set
+				m_TotalCount = value;
+				ViewState["TotalCount"] = m_TotalCount;
+		public int CurrentPage
+			get 
+				return ViewState["CurrentPage"] == null ? 1 : int.Parse(ViewState["CurrentPage"].ToString());
+			set
+				ViewState["CurrentPage"] = value;
+		private void Page_Load(object sender, System.EventArgs e)
+************* Duplicate found ******************************
+./ProfileQuestions/QuestionViewer/ProfileQuestionsBySubjects.aspx.cs(331)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsByPopulation.aspx.cs(362)
+		private void DisplayFooter(int intPageNumber)
+			int intStartCount = (intPageNumber - 1) * intPageSize + 1;
+			int intEndCount = intStartCount + intPageSize - 1;
+			if (intEndCount > this.TotalCount)
+				intEndCount = this.TotalCount;
+			lblResult.Text = "Result " + intStartCount + " - " + intEndCount + " of " + this.TotalCount;
+			if (intPageNumber <= 1)
+				lnkPrevious.Enabled = false;
+			else
+				lnkPrevious.Enabled = true;
+			if (intPageSize > 0)
+				int intTotalPages = TotalCount / intPageSize;
+				if (TotalCount % intPageSize > 0) intTotalPages ++;
+				if (intTotalPages > intPageNumber)
+					lnkNext.Enabled = true;
+				else
+					lnkNext.Enabled = false;
+			else
+				lblResult.Text = "Result " + intStartCount + " - " + this.TotalCount + " of " + this.TotalCount;
+				lnkPrevious.Enabled = false;
+				lnkNext.Enabled = false;
+			if (this.TotalCount <= intPageSize)
+				lnkViewAll.Enabled = false;
+			else
+				lnkViewAll.Enabled = true;
+			if (lnkViewAll.CommandArgument.ToString() == "1")
+				lnkViewAll.Text = "View Paging";
+			else
+				lnkViewAll.Text = "View All";
+************* Duplicate found ******************************
+./ProfileQuestions/QuestionViewer/ProfileQuestionsBySubjects.aspx.cs(127)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsByPopulation.aspx.cs(467)
+		private void FooterButtons_Commands(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+			switch (e.CommandName.ToLower())
+				case "previous":
+					this.CurrentPage -= 1;
+					break;
+				case "next":
+					this.CurrentPage += 1;
+					break;
+				case "all":
+					if (e.CommandArgument.ToString() == "0")
+						lnkViewAll.CommandArgument = "1";
+						this.CurrentPage = 0;
+					else
+						this.CurrentPage = 1;
+						lnkViewAll.CommandArgument = "0";
+					break;
+				SortQuestions("");
+************* Duplicate found ******************************
+./UserControls/ProfileQuestions/ManageQuestions.ascx.cs(615)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsByPopulation.aspx.cs(364)
+			int intStartCount = (intPageNumber - 1) * intPageSize + 1;
+			int intEndCount = intStartCount + intPageSize - 1;
+			if (intEndCount > this.TotalCount)
+				intEndCount = this.TotalCount;
+			lblResult.Text = "Result " + intStartCount + " - " + intEndCount + " of " + this.TotalCount;
+			if (intPageNumber <= 1)
+				lnkPrevious.Enabled = false;
+			else
+				lnkPrevious.Enabled = true;
+			if (intPageSize > 0)
+				int intTotalPages = TotalCount / intPageSize;
+				if (TotalCount % intPageSize > 0) intTotalPages ++;
+				if (intTotalPages > intPageNumber)
+					lnkNext.Enabled = true;
+				else
+					lnkNext.Enabled = false;
+			else
+				lblResult.Text = "Result " + intStartCount + " - " + this.TotalCount + " of " + this.TotalCount;
+				lnkPrevious.Enabled = false;
+				lnkNext.Enabled = false;
+			if (this.TotalCount <= intPageSize)
+				lnkViewAll.Enabled = false;
+			else
+				lnkViewAll.Enabled = true;
+			if (lnkViewAll.CommandArgument.ToString() == "1")
+				lnkViewAll.Text = "View Paging";
+			else
+				lnkViewAll.Text = "View All";
+************* Duplicate found ******************************
+./UserControls/ProfileQuestions/ManageQuestions.ascx.cs(65)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsByPopulation.aspx.cs(56)
+		private int m_TotalCount;
+		public int TotalCount
+			get
+				m_TotalCount = ViewState["TotalCount"] == null ? 0 : Convert.ToInt32(ViewState["TotalCount"]);
+				return m_TotalCount;
+			set
+				m_TotalCount = value;
+				ViewState["TotalCount"] = m_TotalCount;
+		public int CurrentPage
+			get 
+				return ViewState["CurrentPage"] == null ? 1 : int.Parse(ViewState["CurrentPage"].ToString());
+			set
+				ViewState["CurrentPage"] = value;
+************* Duplicate found ******************************
+./UserControls/ProfileQuestions/ManageQuestions.ascx.cs(377)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsByPopulation.aspx.cs(467)
+		private void FooterButtons_Commands(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+			switch (e.CommandName.ToLower())
+				case "previous":
+					this.CurrentPage -= 1;
+					break;
+				case "next":
+					this.CurrentPage += 1;
+					break;
+				case "all":
+					if (e.CommandArgument.ToString() == "0")
+						lnkViewAll.CommandArgument = "1";
+						this.CurrentPage = 0;
+					else
+						this.CurrentPage = 1;
+						lnkViewAll.CommandArgument = "0";
+					break;
+************* Duplicate found ******************************
+./UserControls/ProfileQuestions/ManageQuestions.ascx.cs(377)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsBySubjects.aspx.cs(127)
+		private void FooterButtons_Commands(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+			switch (e.CommandName.ToLower())
+				case "previous":
+					this.CurrentPage -= 1;
+					break;
+				case "next":
+					this.CurrentPage += 1;
+					break;
+				case "all":
+					if (e.CommandArgument.ToString() == "0")
+						lnkViewAll.CommandArgument = "1";
+						this.CurrentPage = 0;
+					else
+						this.CurrentPage = 1;
+						lnkViewAll.CommandArgument = "0";
+					break;
+************* Duplicate found ******************************
+./UserControls/ProfileQuestions/ManageQuestions.ascx.cs(615)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsBySubjects.aspx.cs(333)
+			int intStartCount = (intPageNumber - 1) * intPageSize + 1;
+			int intEndCount = intStartCount + intPageSize - 1;
+			if (intEndCount > this.TotalCount)
+				intEndCount = this.TotalCount;
+			lblResult.Text = "Result " + intStartCount + " - " + intEndCount + " of " + this.TotalCount;
+			if (intPageNumber <= 1)
+				lnkPrevious.Enabled = false;
+			else
+				lnkPrevious.Enabled = true;
+			if (intPageSize > 0)
+				int intTotalPages = TotalCount / intPageSize;
+				if (TotalCount % intPageSize > 0) intTotalPages ++;
+				if (intTotalPages > intPageNumber)
+					lnkNext.Enabled = true;
+				else
+					lnkNext.Enabled = false;
+			else
+				lblResult.Text = "Result " + intStartCount + " - " + this.TotalCount + " of " + this.TotalCount;
+				lnkPrevious.Enabled = false;
+				lnkNext.Enabled = false;
+			if (this.TotalCount <= intPageSize)
+				lnkViewAll.Enabled = false;
+			else
+				lnkViewAll.Enabled = true;
+			if (lnkViewAll.CommandArgument.ToString() == "1")
+				lnkViewAll.Text = "View Paging";
+			else
+				lnkViewAll.Text = "View All";
+************* Duplicate found ******************************
+./UserControls/ProfileQuestions/ManageQuestions.ascx.cs(65)
+./ProfileQuestions/QuestionViewer/ProfileQuestionsBySubjects.aspx.cs(53)
+		private int m_TotalCount;
+		public int TotalCount
+			get
+				m_TotalCount = ViewState["TotalCount"] == null ? 0 : Convert.ToInt32(ViewState["TotalCount"]);
+				return m_TotalCount;
+			set
+				m_TotalCount = value;
+				ViewState["TotalCount"] = m_TotalCount;
+		public int CurrentPage
+			get 
+				return ViewState["CurrentPage"] == null ? 1 : int.Parse(ViewState["CurrentPage"].ToString());
+			set
+				ViewState["CurrentPage"] = value;

@@ -14,3 +14,9 @@ find -name "*.sql" >> $DUPLO_DIR/files.txt
 sed '/.\/Tests/d' "$DUPLO_DIR/files.txt" > "$DUPLO_DIR/filteredfiles.txt";
 
 "$DUPLO_DIR/bin/duplo.exe" "$DUPLO_DIR/filteredfiles.txt" "$DUPLO_DIR/results.txt"
+
+	# NOTE: could also do xml output:
+	# "$DUPLO_DIR/bin/duplo.exe" -xml "$DUPLO_DIR/filteredfiles.txt" "$DUPLO_DIR/results.txt"
+
+#Filter output:
+ruby "$DUPLO_DIR/filter_duplo_entries.rb" "$DUPLO_DIR/results.txt" > "$DUPLO_DIR/filteredresults.txt";

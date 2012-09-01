@@ -1,5 +1,7 @@
 This is a wrapper for the program duplo:
+
 http://duplo.sourceforge.net/
+
 http://sourceforge.net/projects/duplo/
 
 

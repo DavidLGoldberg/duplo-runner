@@ -16,5 +16,5 @@ This command of course takes longer for larger code bases...
 -David
 
 p.s.
-Ironically, I have some poorly architected duplicated code in the wrappers! Especially in the ruby.. Probably the most code I've written with ruby :(
+Ironically, I left some stinky & poorly architected duplicated code in the wrappers! Especially in the ruby.. Probably the most code I've written with ruby :(
 Maybe I can clean this up a bit!
